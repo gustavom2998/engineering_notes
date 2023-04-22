@@ -75,19 +75,17 @@ List the running containers for Airflow. Contains three different resources: The
 sudo astro dev ps
 ```
 
-![Untitled](courses/airflow_fundamentals/images/introduction_1.png)
-
 ![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/introduction_1.png?raw=true)
 
 The web server can be accessed from the browser by going to the URL [localhost:8080](http://localhost:8080).
 
 Authenticate with admin:admin.
 
-![Untitled](courses/airflow_fundamentals/images/introduction_2.png)
+![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/introduction_2.png?raw=true)
 
 We're on the Airflow web console, where we can interact with Airflow
 
-![Untitled](courses/airflow_fundamentals/images/introduction_3.png)
+![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/introduction_3.png?raw=true)
 
  
 
