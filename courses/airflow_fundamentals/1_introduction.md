@@ -77,7 +77,7 @@ sudo astro dev ps
 
 ![Untitled](courses/airflow_fundamentals/images/introduction_1.png)
 
-![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/introduction_1.png?raw=true)
+![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/Ccourses/airflow_fundamentals/images/introduction_1.png?raw=true)
 
 The web server can be accessed from the browser by going to the URL [localhost:8080](http://localhost:8080).
 
