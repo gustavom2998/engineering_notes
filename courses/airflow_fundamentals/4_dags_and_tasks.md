@@ -61,9 +61,9 @@ from airflow.operators.dummy import DummyOperator # Operator that does nothing
 from datetime import datetime # For specifying the start date
 
 with DAG(dag_id = 'simple_dag', start_date = datetime(2021,1,1) ) as dag:
-	task_1 = DummyOperator(
-		task_id = 'task_1'
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1'
+    )
 ```
 
 If we don't specify the start date, we get an error in the Airflow GUI. We could also specify the start date at the operator level:
@@ -74,10 +74,10 @@ from airflow.operators.dummy import DummyOperator # Operator that does nothing
 from datetime import datetime # For specifying the start date
 
 with DAG(dag_id = 'simple_dag', start_date = datetime(2021,1,1) ) as dag:
-	task_1 = DummyOperator(
-		task_id = 'task_1',
-		start_date = datetime(2021,1,2)
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1',
+        start_date = datetime(2021,1,2)
+    )
 ```
 
 But this shouldn't be done, since tasks will the start in different dates. 
@@ -98,9 +98,9 @@ from airflow.operators.dummy import DummyOperator # Operator that does nothing
 from datetime import datetime # For specifying the start date
 
 with DAG(dag_id = 'simple_dag', schedule_interval = '*/10 * * * *', start_date = datetime(2021,1,1)) as dag:
-	task_1 = DummyOperator(
-		task_id = 'task_1'
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1'
+    )
 ```
 
 ### Airflow Interval Tags
@@ -112,9 +112,9 @@ from datetime import datetime # For specifying the start date
 
 # Or @monthly or @weekly
 with DAG(dag_id = 'simple_dag', schedule_interval = '@daily', start_date = datetime(2021,1,1)) as dag:
-	task_1 = DummyOperator(
-		task_id = 'task_1'
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1'
+    )
 ```
 
 ### Using timedelta
@@ -128,9 +128,9 @@ from datetime import datetime, timedelta
 
 # Or @monthly or @weekly
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date = datetime(2021,1,1)) as dag:
-	task_1 = DummyOperator(
-		task_id = 'task_1'
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1'
+    )
 ```
 
 ### Backfilling and Catchup
@@ -147,15 +147,15 @@ from datetime import datetime, timedelta
 
 # Or @monthly or @weekly
 with DAG(
-	dag_id = 'simple_dag', 
-	schedule_interval = timedelta(hours=7), 
-	start_date =days_ago(3)
-	catchup=False
-	) as dag:
+    dag_id = 'simple_dag', 
+    schedule_interval = timedelta(hours=7), 
+    start_date =days_ago(3)
+    catchup=False
+    ) as dag:
 
-	task_1 = DummyOperator(
-		task_id = 'task_1'
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1'
+    )
 ```
 
 To limit the number of DAG runs running in parallel you can use the max_active_runs in the DAG definition. 
@@ -168,16 +168,16 @@ from datetime import datetime, timedelta
 
 # Or @monthly or @weekly
 with DAG(
-	dag_id = 'simple_dag', 
-	schedule_interval = timedelta(hours=7), 
-	start_date =days_ago(3)
-	catchup=False,
-	max_active_runs=3
-	) as dag:
+    dag_id = 'simple_dag', 
+    schedule_interval = timedelta(hours=7), 
+    start_date =days_ago(3)
+    catchup=False,
+    max_active_runs=3
+    ) as dag:
 
-	task_1 = DummyOperator(
-		task_id = 'task_1'
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1'
+    )
 ```
 
 With catchup parameter set as false, the backfilling process can be executed in the command line.
@@ -198,18 +198,18 @@ from datetime import datetime, timedelta
 
 # Or @monthly or @weekly
 with DAG(
-	dag_id = 'simple_dag', 
-	schedule_interval = timedelta(hours=7), 
-	start_date =days_ago(3)
-	catchup=False,
-	max_active_runs=3
-	) as dag:
+    dag_id = 'simple_dag', 
+    schedule_interval = timedelta(hours=7), 
+    start_date =days_ago(3)
+    catchup=False,
+    max_active_runs=3
+    ) as dag:
 
-	task_1 = DummyOperator(
-		task_id = 'task_1',
-		retry=5,
-		retry_delay=timedelta(minutes=5)
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1',
+        retry=5,
+        retry_delay=timedelta(minutes=5)
+    )
 ```
 
 Also, the default parameters such as retry and retry_delay can be set globally for the DAG. This can be done using the default_args argument for the DAG:
@@ -221,23 +221,23 @@ from airflow.utils.dates import daysago
 from datetime import datetime, timedelta
 
 default_args = {
-		'retry':5,
-		'retry_delay':timedelta(minutes=5)
+        'retry':5,
+        'retry_delay':timedelta(minutes=5)
 }
 
 # Or @monthly or @weekly
 with DAG(
-	dag_id = 'simple_dag', 
-	schedule_interval = timedelta(hours=7), 
-	start_date =days_ago(3)
-	catchup=False,
-	max_active_runs=3,
-	default_args = default_args
-	) as dag:
+    dag_id = 'simple_dag', 
+    schedule_interval = timedelta(hours=7), 
+    start_date =days_ago(3)
+    catchup=False,
+    max_active_runs=3,
+    default_args = default_args
+    ) as dag:
 
-	task_1 = DummyOperator(
-		task_id = 'task_1',
-	)
+    task_1 = DummyOperator(
+        task_id = 'task_1',
+    )
 ```
 
 The baseoperator class specifies all the basic parameters that can be applied to all operators.
@@ -255,27 +255,27 @@ from airflow.utils.dates import daysago
 from datetime import datetime, timedelta
 
 default_args = {
-		'retry':5,
-		'retry_delay':timedelta(minutes=5)
+        'retry':5,
+        'retry_delay':timedelta(minutes=5)
 }
 
 def _downloading_data():
-	print('testing...')
+    print('testing...')
 
 # Or @monthly or @weekly
 with DAG(
-	dag_id = 'simple_dag', 
-	schedule_interval = timedelta(hours=7), 
-	start_date =days_ago(3)
-	catchup=False,
-	max_active_runs=3,
-	default_args = default_args
-	) as dag:
+    dag_id = 'simple_dag', 
+    schedule_interval = timedelta(hours=7), 
+    start_date =days_ago(3)
+    catchup=False,
+    max_active_runs=3,
+    default_args = default_args
+    ) as dag:
 
-	task_1 = PythonOperator(
-		task_id = 'task_1',
-		python_callable=downloading_data
-	)
+    task_1 = PythonOperator(
+        task_id = 'task_1',
+        python_callable=downloading_data
+    )
 ```
 
 ```python
@@ -314,27 +314,27 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 
 default_args = {
-		'retry':5,
-		'retry_delay':timedelta(minutes=5)
+        'retry':5,
+        'retry_delay':timedelta(minutes=5)
 }
 
 def _downloading_data(ds):
-	print(ds)
+    print(ds)
 
 # Or @monthly or @weekly
 with DAG(
-	dag_id = 'simple_dag', 
-	schedule_interval = timedelta(hours=7), 
-	start_date =days_ago(3)
-	catchup=False,
-	max_active_runs=3,
-	default_args = default_args
-	) as dag:
+    dag_id = 'simple_dag', 
+    schedule_interval = timedelta(hours=7), 
+    start_date =days_ago(3)
+    catchup=False,
+    max_active_runs=3,
+    default_args = default_args
+    ) as dag:
 
-	task_1 = PythonOperator(
-		task_id = 'task_1',
-		python_callable=downloading_data
-	)
+    task_1 = PythonOperator(
+        task_id = 'task_1',
+        python_callable=downloading_data
+    )
 ```
 
 We can also specify the argument such as op_kwargs to specify a dictionary and pass parameters to the function. This must be defined in the Python function arguments.
@@ -347,28 +347,28 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 
 default_args = {
-		'retry':5,
-		'retry_delay':timedelta(minutes=5)
+        'retry':5,
+        'retry_delay':timedelta(minutes=5)
 }
 
 def _downloading_data(my_params, ds):
-	print(my_params, ds)
+    print(my_params, ds)
 
 # Or @monthly or @weekly
 with DAG(
-	dag_id = 'simple_dag', 
-	schedule_interval = timedelta(hours=7), 
-	start_date =days_ago(3)
-	catchup=False,
-	max_active_runs=3,
-	default_args = default_args
-	) as dag:
+    dag_id = 'simple_dag', 
+    schedule_interval = timedelta(hours=7), 
+    start_date =days_ago(3)
+    catchup=False,
+    max_active_runs=3,
+    default_args = default_args
+    ) as dag:
 
-	task_1 = PythonOperator(
-		task_id = 'task_1',
-		python_callable=downloading_data,
-		op_kwargs={'my_params':42}
-	)
+    task_1 = PythonOperator(
+        task_id = 'task_1',
+        python_callable=downloading_data,
+        op_kwargs={'my_params':42}
+    )
 ```
 
 ### Putting the DAG on Hold
@@ -385,28 +385,28 @@ from airflow.sensors.filesystem import FileSensor
 from datetime import datetime, timedelta
 
 default_args = {
-		'retry':5,
-		'retry_delay':timedelta(minutes=5)
+        'retry':5,
+        'retry_delay':timedelta(minutes=5)
 }
 
 def _downloading_data(**kwargs):
-	with open('/tmp/my_file.txt', 'w') as f:
-		f.write('my_date')
+    with open('/tmp/my_file.txt', 'w') as f:
+        f.write('my_date')
 
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date =days_ago(3), catchup=False,max_active_runs=3,default_args = default_args) as dag:
 
-	downloading_date = PythonOperator(
-		task_id = 'downloading_date ',
-		python_callable=downloading_data,
-		op_kwargs={'my_params':42}
-	)
+    downloading_date = PythonOperator(
+        task_id = 'downloading_date ',
+        python_callable=downloading_data,
+        op_kwargs={'my_params':42}
+    )
 
-	waiting_for_data = FileSensor(
-		task_id = 'waiting_for_data',
-		fs_conn_id='fs_default',
-		filepath='my_file.txt',
-		poke_interval = 15 
-	)
+    waiting_for_data = FileSensor(
+        task_id = 'waiting_for_data',
+        fs_conn_id='fs_default',
+        filepath='my_file.txt',
+        poke_interval = 15 
+    )
 ```
 
 The FileSensor must receive a fs_conn_id argument which is a file connection ID. The default argument can be used to specify a Airflow Connection previously configured on the UI. The filepath must also be specified. The poke interval is the amount of time it takes the sensor to perform checks for the event.
@@ -427,12 +427,12 @@ from airflow.operators.bash import BashOperator
 
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date =days_ago(3), catchup=False,max_active_runs=3,default_args = default_args) as dag:
 
-	...
+    ...
 
-	processing_data = BashOperator(
-		task_id="processing_data",
-		bash_command="exit 0"
-	)
+    processing_data = BashOperator(
+        task_id="processing_data",
+        bash_command="exit 0"
+    )
 ```
 
 ### Defining Task Paths
@@ -449,10 +449,10 @@ from airflow.operators.bash import BashOperator
 
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date =days_ago(3), catchup=False,max_active_runs=3,default_args = default_args) as dag:
 
-	...
-	# The first task to execute is the object
-	downloading_data.set_downstream(waiting_for_data)
-	waiting_for_data.set_downstream(processing_data)
+    ...
+    # The first task to execute is the object
+    downloading_data.set_downstream(waiting_for_data)
+    waiting_for_data.set_downstream(processing_data)
 ```
 
 ```python
@@ -463,10 +463,10 @@ from airflow.operators.bash import BashOperator
 
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date =days_ago(3), catchup=False,max_active_runs=3,default_args = default_args) as dag:
 
-	...
-	# The first task to execute is the parameter
-	waiting_for_data.set_upstream(downloading_data) 
-	processing_data.set_upstream(waiting_for_data) 
+    ...
+    # The first task to execute is the parameter
+    waiting_for_data.set_upstream(downloading_data) 
+    processing_data.set_upstream(waiting_for_data) 
 ```
 
 There is a better way to do this with the left and right bitshift operators:
@@ -479,9 +479,9 @@ from airflow.operators.bash import BashOperator
 
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date =days_ago(3), catchup=False,max_active_runs=3,default_args = default_args) as dag:
 
-	...
-	downloading_data >> waiting_for_data >> processing_data # set downstream
-	processing_data << waiting_for_data << downloading_data # set upstream
+    ...
+    downloading_data >> waiting_for_data >> processing_data # set downstream
+    processing_data << waiting_for_data << downloading_data # set upstream
 ```
 
 If we want to execute multiple tasks in parallel, they can be put in parallel:
@@ -494,8 +494,8 @@ from airflow.operators.bash import BashOperator
 
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date =days_ago(3), catchup=False,max_active_runs=3,default_args = default_args) as dag:
 
-	...
-	downloading_data >> [waiting_for_data, processing_data]
+    ...
+    downloading_data >> [waiting_for_data, processing_data]
 ```
 
 Airflow also brings helpers to structure this path. The chain function can be used to pass the sequence as a sequence of arguments instead of a sequence of bitshits:
@@ -508,9 +508,9 @@ from airflow.models.baseoperator import chain
 
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date =days_ago(3), catchup=False,max_active_runs=3,default_args = default_args) as dag:
 
-	...
-	# Same as downloading_data >> waiting_for_data >> processing_data
-	chain(downloading_data, waiting_for_data, processing_data)
+    ...
+    # Same as downloading_data >> waiting_for_data >> processing_data
+    chain(downloading_data, waiting_for_data, processing_data)
 ```
 
 The second function that can help is the cross downstream function:
@@ -523,9 +523,9 @@ from airflow.models.baseoperator import cross_downstream
 
 with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_date =days_ago(3), catchup=False,max_active_runs=3,default_args = default_args) as dag:
 
-	...
+    ...
 
-	cross_downstream([downloading_data, checking_data],[waiting_for_data, processing_data])
+    cross_downstream([downloading_data, checking_data],[waiting_for_data, processing_data])
 ```
 
 This generates the following DAG. Processing data depends on downloading_data and checking_data, and waiting_for_data depends on both as well. This should be used when two lists of tasks require dependency. If the bitshift operator is used, the DAG fails.
@@ -542,17 +542,17 @@ A XCOM is created when a value is returned from a function for example. Another 
 
 ```python
 def _downloading_data(ti):
-	my_xcom = ti.xcom_push(key='my_key', value='42')
-	return '42' # both work
+    my_xcom = ti.xcom_push(key='my_key', value='42')
+    return '42' # both work
 ```
 
 Then we can pull the XCOM using xcom_pull.
 
 ```python
 def _checking_data(ti):
-	my_xcom = ti.xcom_pull(key='return_value', task_id =['downloading_data'])
-	my_xcom2 = ti.xcom_pull(key='my_key', task_id =['downloading_data'])
-	print(my_xcom)
+    my_xcom = ti.xcom_pull(key='return_value', task_id =['downloading_data'])
+    my_xcom2 = ti.xcom_pull(key='my_key', task_id =['downloading_data'])
+    print(my_xcom)
 ```
 
 XCom are stored in the metadatabase of airflow. With this, there are limitations of size of what can be written with XCom. It's not recommended to process gigabytes of data. 
