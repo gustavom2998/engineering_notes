@@ -2,7 +2,7 @@
 
 In this topic we will learn the basics of building a data pipeline using a DAG. We begin by opening the Airflow Project on VSCode and creating a new file called `simple_dag.py` inside the DAGs directory.
 
-![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/using_airflow_1.png?raw=true)
+![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/dags_1.png?raw=true)
 
 ## DAG Skeleton
 
@@ -37,7 +37,7 @@ with DAG(dag_id = 'simple_dag') as dag:
 
 We can save this file and open the Apache Airflow user interface to verify the DAG is actually defined. Notice that the DAG, by default, contains no owner and is scheduled to run daily.
 
-![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/using_airflow_2.png?raw=true)
+![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/dags_2.png?raw=true)
 
 ## Demystifying DAG Scheduling
 
@@ -413,7 +413,7 @@ The FileSensor must receive a fs_conn_id argument which is a file connection ID.
 
 By going to "Admin > Connections" the connection can be created. By clicking on the plus sign and "add a new record" the file connection can be configured. The ID field specifies the identifier of the connection + configuration. The connection type specifies the type of service to be connected to. For the file connector the extra JSON can be the path for the file:
 
-![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/using_airflow_3.png?raw=true)
+![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/dags_3.png?raw=true)
 
 ### Executing Bash commands
 
@@ -530,7 +530,7 @@ with DAG(dag_id = 'simple_dag', schedule_interval = timedelta(hours=7), start_da
 
 This generates the following DAG. Processing data depends on downloading_data and checking_data, and waiting_for_data depends on both as well. This should be used when two lists of tasks require dependency. If the bitshift operator is used, the DAG fails.
 
-![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/using_airflow_4.png?raw=true)
+![Untitled](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/images/dags_4.png?raw=true)
 
 ### Exchaging Data
 
