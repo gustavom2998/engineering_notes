@@ -234,7 +234,7 @@ Analytic data is deployed on a departmental basis, with no concern for sharing a
 - If money has been invested in creating a 3NF EDW, but it doesn't deliver fast and flexible reporting, this hybrid approach may be appropriate.
 - If starting from scratch, the multiple ETL processes and replicated atomic data storage may cost more to develop and operate.
 
-![Hybrid Inmon/Kimball Architecture](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/images/1_2.png?raw=true)
+![Hybrid Inmon/Kimball Architecture](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/images/1_5.png?raw=true)
 
 ## Data Modelling Myths
 
