@@ -4,6 +4,8 @@ Personal repository for storing notes for books, courses and articles related to
 
 ## Books
 
+1.  [The Data Warehouse Toolkit by Ralph Kimball and Margy Ross](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/README.md)
+
 ## Courses
 
 1. [Apache Airflow Fundamentals by Astronomer Foundation](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/README.md)
