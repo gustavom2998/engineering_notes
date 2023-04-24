@@ -1,10 +1,10 @@
-# Data Warehouse, Bussiness Inteligence and Dimensional Modelling
+# Data Warehouse, Bussiness Intelligence and Dimensional Modelling
 
 ## Summary
 
 - Overview of Data warehousing and Bussiness Intelligence systems
-- Analyze bussiness needs for a data warehouse
-- Work backwards to the logical and then physical designs, as long as with decisions about techonologies and tools.
+- Analyze business needs for a data warehouse
+- Work backwards to the logical and then physical designs, as long as with decisions about technologies and tools.
 - Introduce dimensional modelling concepts and vocabulary
 - Kimball DW/BI architecture along with alternatives
 - Review common myths and misconceptions about DW/BI
@@ -238,8 +238,8 @@ Analytic data is deployed on a departmental basis, with no concern for sharing a
 
 ## Data Modelling Myths
 
-1. **For summary data only**: Summary data may be provided to complement granular detail and improve performance for common queries, but data in a dimensional model should be atomic. Also, nothing about dimensional modelling limits data history, but it's generally cut off by bussiness requirements.
+1. **For summary data only**: Summary data may be provided to complement granular detail and improve performance for common queries, but data in a dimensional model should be atomic. Also, nothing about dimensional modelling limits data history, but it's generally cut off by business requirements.
 2. **Departmental data, not enterprise**: Dimensional models should be organized around business processes. Multiple departments may want to perform similar analysis for the same process, and extracting the same data multiple times may create departmental silos which cause incosistencies.
 3. **Not scalable**: Fact tables frequently have billions of rows. Both normalized and dimensional models contain the same information and data relationships, what changes is the organization.
-4. **Limited to predictable usage**: Dimensional model design should be bussiness measure centric, indepedente of the use case. It's important to consider BI requirements, but reports change over time. Dimensional models can handle change gracefully. Atomic data is the key to flexibility.
+4. **Limited to predictable usage**: Dimensional model design should be business measure centric, indepedente of the use case. It's important to consider BI requirements, but reports change over time. Dimensional models can handle change gracefully. Atomic data is the key to flexibility.
 5. **Doesn't integrate**: Dimensions can be maintained as centralized, persistent master data in the ETL system and reused for many dimensional models to ensure data integration and consistency. This requires organizational consensus on standardized labels, values and defitions however.
