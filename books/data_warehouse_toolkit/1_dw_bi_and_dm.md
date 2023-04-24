@@ -29,7 +29,7 @@ Information is normally used for two purposes:
 - Solves performance problems but ignores other problems. 
 - Lazy solutions and don't acknowledge the different needs BI users have.
 
-## DW/BI Goals :check:
+## DW/BI Goals
 
 Before understanding how to build data warehouses, we must understand why users need them. The main reasons for needing a data warehouse are:
 
