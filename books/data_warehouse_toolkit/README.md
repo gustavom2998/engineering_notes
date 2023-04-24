@@ -1,11 +1,12 @@
 # The Data Warehouse Toolkit
 
-Personal notes based of the book [The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling](https://www.amazon.com/Data-Warehouse-Toolkit-Definitive-Dimensional/dp/1118530802) by Ralph Kimball and Margy Ross. The notes are based of the 3rd edition of the book. In the near future, I'll try to add some SQL samples to the notes.
+Personal notes for educational purposes based of the book [The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling](https://www.amazon.com/Data-Warehouse-Toolkit-Definitive-Dimensional/dp/1118530802) by Ralph Kimball and Margy Ross. I also took some time to simplify some diagrams to go along with the notes. The notes are based of the 3rd edition of the book. The notes should only be used for In the near future, I'll try to add some SQL samples to the notes.
 
 ## Book Notes
 
-- [Chapter 1: Data Warehouse, BI, and Dimensional Modelling](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/1_dw_bi_and_dm.md)
-- 
+- [Chapter 1: Data Warehouseing and Bussiness Intelligence Introduction](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/1_1_dw_bi_introduction.md)
+- [Chapter 1: Dimensional Modelling](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/1_2_dimensional_modelling.md)
+- [Chapter 1: Common DW/BI Architecures](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/1_3_dw_architectures.md)
 
 ## Personal Notes
 
