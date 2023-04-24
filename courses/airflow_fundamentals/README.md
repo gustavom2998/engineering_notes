@@ -1,6 +1,6 @@
 # Apache Airflow Fundamentals
 
-Notes are based of the course [Apache Airflow Fundamentals by Astronomer Foundation](https://academy.astronomer.io/astronomer-certification-apache-airflow-fundamentals-preparation). 
+Notes are based off the course [Apache Airflow Fundamentals by Astronomer Foundation](https://academy.astronomer.io/astronomer-certification-apache-airflow-fundamentals-preparation). 
 
 ## Course Notes
 
