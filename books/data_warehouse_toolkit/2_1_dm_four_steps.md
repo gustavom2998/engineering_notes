@@ -1,4 +1,4 @@
-# Dimensional modelling 
+# Dimensional modelling concepts - Four step design process
 
 ## Business requirements 
 
@@ -50,6 +50,16 @@
 **Business interests**: Logistics of ordering, stocking and selecting products while maximizing profits. This comes from charging as much as possible for products while keeping customers happy. Management and marketing makes decisions related to pricing and promotions which can greatly impact sales. Promotions include temporary price reductions, coupons and ads.
 
 1. Business processes: Better understand point of sale systems (retail sales transactions). The objective is to analyze **what products** are selling, in **what stores**, with **what promotions** and **when**.
-2. Grain: When we analyze the businness process we proposed to analyze, we seen that the grain is a **single product in a sales transaction**. After analyzing the proposal, we can see that we don't propose drilling down deeper than into an individual products in a sale.
+2. Grain: When we analyze the business process we proposed to analyze, we seen that the grain is a **single product in a sales transaction**. After analyzing the proposal, we can see that we don't propose drilling down deeper than into an individual products in a sale.
 3. Dimensions: There are some keywords that have repeated over our analysis. **Stores**, **products**, **transactions**, **promotions**, **cashiers**, **payment methods** and **dates**.
 4. Facts: We can basically identify how to transform the grain into a table. The grain is a single product in a sales transaction. The facts are metrics collected for the grain, therefore we can identify some metrics from the receipt: Number of products, regular price, discount, extended discount (quantity * discount), extended sales dollar amount (quantity * net unit price), net paid price(sales dollar - extended discount). Also some systems contain a standard dollar cost price.
+
+Below, we outline a basic diagram containing what could be the start of a dimensional model for the proposed case.
+
+![Retail Sales Partial Dimensional Model](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/images/2_1.png?raw=true)
+
+Below, we can start implementing the definition of these tables via SQL, even if we havn't completed the model:
+
+## Reference
+
+Personal notes for educational purposes based of the book [The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling](https://www.amazon.com/Data-Warehouse-Toolkit-Definitive-Dimensional/dp/1118530802) by Ralph Kimball and Margy Ross, 3rd edition.
