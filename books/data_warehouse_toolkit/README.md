@@ -8,6 +8,8 @@ Personal notes for educational purposes based of the book [The Data Warehouse To
 - [Chapter 1: Dimensional Modelling](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/1_2_dimensional_modelling.md)
 - [Chapter 1: Common DW/BI Architecures](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/1_3_dw_architectures.md)
 - [Chapter 2: Dimensional modelling concepts - Four step design process](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/2_1_dm_four_steps.ipynb)
+- [Chapter 2: Fact Table Techniques - Measure Categories](https://github.com/gustavom2998/engineering_notes/blob/main/books/data_warehouse_toolkit/2_2_fact_measure_categories.ipynb)
+- 
 
 ## Personal Notes
 
