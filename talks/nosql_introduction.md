@@ -2,7 +2,8 @@
 
 ## History
 
-## Mid 80s
+### Mid 80s
+
 - Rise of relational databases
 - Benefits: 
 	- Data Persistence
