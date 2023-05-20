@@ -2,24 +2,29 @@
 
 ## History
 
-- Mid 80s: Rise of relational databases
-	- Benefits: 
-		- Data Persistence, 
-		- concurrency with transactions, 
-		- Standard database language (SQL), 
-		- Great for integration and reporting
-	- Problems:
-		- Impedance mismatch: Memory structure vs Database structure. 
-		- Leads to object to relational mapping frameworks.
-- Mid 90s: 
-	- Rise of object databases.
-	- Integration with relational databases made it hard for object databases catch on.
-- Mid 2000s: 
-	- Relational kept its dominance (especially in the enterprise space).
-	- Rise of internet and sites with lots of traffic
-	- Vertical scaling became a problem (expensive and with hard limitations).
-	- SQL was designed for Vertical scaling.
-	- Big data players had a hard time performing horizontal scaling with relational databases.
+## Mid 80s
+- Rise of relational databases
+- Benefits: 
+	- Data Persistence
+	- concurrency with transactions,
+	- Standard database language (SQL)
+	- Great for integration and reporting
+- Problems:
+	- Impedance mismatch: Memory structure vs Database structure. 
+	- Leads to object to relational mapping frameworks.
+
+### Mid 90s: 
+
+- Rise of object databases.
+- Integration with relational databases made it hard for object databases to catch on.
+
+### Mid 2000s
+
+- Relational kept its dominance (especially in the enterprise space).
+- Rise of internet and sites with lots of traffic
+- Vertical scaling became a problem (expensive and with hard limitations).
+- SQL was designed for Vertical scaling.
+- Big data players had a hard time performing horizontal scaling with relational databases.
 
 ## NoSQL Common Characterists
 
@@ -29,42 +34,48 @@
 - 21st Century web 
 - Schema-less
 
-## Common data models:
+## Common data models
 
-- Key value Store
-	- You have a key
-	- You provide the key to the database
-	- You grab the value of the key
-	- The value could be anything (document, image, number)
-	- A hash map but persistant.
-	- Metadata can be stored about the values (similar to document)
-- Document
-	- Thinks of database as storage of documents
-	- Each document is a complex data structure
-	- Normally uses JSON for data representation
-	- You can query document structure and retrive/update portions of the document
-	- Doesn't tend to have a set schema (Common pattern of NoSQL)
-		- Very flexible but has problems
-		- Normally an implicit schema is derived
-		- This schema needs to be managed and tracked
-		- Schemaless is a bad term
-		- Very flexible, but ther is an implicit schema
-	- Normally there is an ID for the document - and this is the same as the key in a key-value store
-- Column N
-	- Also an aggregate oriented database
-	- Row-key can store multiple column families
-	- Each column family is a combination of columns
-	- Columns can be adressed by combining row key and column name.
-	- More complex data model
-	- Retriavel is easier because of named columns
-- Graph
-	- Uses different data model to aggregate orientation
-	- Node and Arc graph structure
-	- Very good at handling relantionships
-	- Relational databases require joins, foreign keys, doesn't scale too well
-	- Easy and optimized for getting diferent relations
-	- Separate query language for complex querying (very difficult to write in SQL) which is very optimized
-	- Graph oriented databases breaks data into smaller units instead of cumpling them together
+### Key value Store
+
+- You have a key
+- You provide the key to the database
+- You grab the value of the key
+- The value could be anything (document, image, number)
+- A hash map but persistant.
+- Metadata can be stored about the values (similar to document)
+
+### Document
+
+- Thinks of database as storage of documents
+- Each document is a complex data structure
+- Normally uses JSON for data representation
+- You can query document structure and retrive/update portions of the document
+- Doesn't tend to have a set schema (Common pattern of NoSQL)
+	- Very flexible but has problems
+	- Normally an implicit schema is derived
+	- This schema needs to be managed and tracked
+	- Schemaless is a bad term
+	- Very flexible, but ther is an implicit schema
+- Normally there is an ID for the document - and this is the same as the key in a key-value store
+
+### Column N
+
+- Row-key can store multiple column families
+- Each column family is a combination of columns
+- Columns can be adressed by combining row key and column name.
+- More complex data model
+- Retriavel is easier because of named columns
+
+### Graph
+
+- Uses different data model to aggregate orientation
+- Node and Arc graph structure
+- Very good at handling relantionships
+- Relational databases require joins, foreign keys, doesn't scale too well
+- Easy and optimized for getting diferent relations
+- Separate query language for complex querying (very difficult to write in SQL) which is very optimized
+- Graph oriented databases breaks data into smaller units instead of cumpling them together
 
 ## Aggregate oriented databases
 
@@ -90,6 +101,8 @@
 - Need to have a mechanism for atomic updates
 - Graph databases tend to follow ACID updates
 - Aggregate databases are ACID in single aggregates
+
+### Logical Consistancy
 - To prevent write write conflicts, GET and POST for data must be a single transaction.
 	- This is hard to do since transactions must be short.
 	- Only possible with low performance needs.
@@ -104,7 +117,10 @@
 		- First person gets and post ok
 		- Second person gets an error on post - and the error is treated
 - Up we've analysed logical consistancy
-	- Occurs on one our multiple machines
+	- Occurs on one or multiple machines
+
+### Distribution
+
 - Distributed data can be:
 	- Sharded: Taking one copy of the data and putting in different machine
 		- Each data lives only on one machine
@@ -117,17 +133,21 @@
 			- The system may disable any requests - this keep consistency
 			- An alternative may be accepting both requests - this guarantees availability
 			- This behaviour is a choice - decided by domain (business)
-- CAP Theorem:
-	- Consistency, Availability, PartitionTolerance - Pick 2
-	- A better way to state this: You have partitioning (distributed) - Pick Availability or consistency.
-	- This is actually a spectrum - we can choose varying degrees of availability/cosistency.
-	- Most of the time we're trading off cosistency vs response time.
-	- Its up to the business to decide these tradeoffs - not tech teams.
-- Other topics to explored
-	- Relaxing durability
-	- Eventual consistency
-	- Quorums
-	- Read you writes cosistency
+
+### CAP Theorem
+
+- Consistency, Availability, PartitionTolerance - Pick 2
+- A better way to state this: You have partitioning (distributed) - Pick Availability or consistency.
+- This is actually a spectrum - we can choose varying degrees of availability/cosistency.
+- Most of the time we're trading off cosistency vs response time.
+- Its up to the business to decide these tradeoffs - not tech teams.
+
+### Other topics to explore
+
+- Relaxing durability
+- Eventual consistency
+- Quorums
+- Read you writes cosistency
 
 ## When to use NoSQL
 
