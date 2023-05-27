@@ -13,3 +13,7 @@ Personal repository for storing notes for books, courses and articles related to
 
 ## Articles
 
+## Talks
+
+1. [Introduction to NoSQL Databases - Martin Fowler](https://github.com/gustavom2998/engineering_notes/blob/main/talks/nosql_introduction.md)
+
