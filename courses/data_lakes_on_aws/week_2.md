@@ -145,3 +145,52 @@ Another way to integrate data is with SaaS integrations.
 
 ### Analytics
 
+- Data is ready to be consumed
+- Amazon Athena
+  - Serverless object query service
+  - Query data that has been loaded to S3 using SQL
+  - No need to move data into relational database
+  - Integrates with Glue to query data sets from the catalog
+- Amazon Redshift
+  - Data warehousing service for running clusters to run complex SQL queries for analytics.
+  - Data can be loaded from various sources besides S3
+  - Also great for analyzing data on S3.
+- Amazon Kinesis Data Analytics
+  - Better alternative for real time analytics
+  - Uses standard SQL
+  - Destinations can be configured for storing analytics results.
+    - S3, Elasticsearch, Dashboards.
+- Amazon Elasticsearch
+  - Text, geo-location, structured or unstructured.
+  - Data can be loaded via real time or S3.
+  - Great for log analytics
+  - Commonly used with Logstash and Kibana (ELK stack).
+
+### Predictive analytics and machine learning
+
+- Machine learning normally requires large amounts of data.
+- Data is normally stored in data lakes due to cheap storage.
+- Schema on read gives flexibility on what models can be built.
+- Forecasting
+  - Analysis of historical data to predict future outcomes.
+  - Has many applications
+  - Sales volume forecasting for managing inventory
+  - Building recommendation engine to offer content based on user behaviour.
+- EC2 Instances
+  - DIY: ML Expert builds models based on data lake data
+  - AMI: Amazon deep learning images
+- Sagemaker
+  - Serverless and managed
+  - Built, train and deploy on platform service.
+  - User can focus on algorithms.
+- Solution API Services
+  - Amazon recognition: Computer vision
+  - Amazon Comprehend: NLP
+  - Pre-trained, little user control.
+
+## Building a Data lake
+
+- Previous resources can be self configured and integrated.
+- AWS Lake Formation can be used to make setup process easier.
+- Service that helps orchestrate services to build a data lake.
+- Good for getting started, more advanced users can migrate off it an maintain the data lake themselves.
