@@ -1,4 +1,4 @@
-# Introduction to designing data lakes on AWS
+# Introduction to designing data lakes on AWS (Coursera)
 
 Course link: https://www.coursera.org/learn/introduction-to-designing-data-lakes-in-aws
 

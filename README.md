@@ -9,7 +9,7 @@ Personal repository for storing notes for books, courses and articles related to
 ## Courses
 
 1. [Apache Airflow Fundamentals by Astronomer Foundation](https://github.com/gustavom2998/engineering_notes/blob/main/courses/airflow_fundamentals/README.md)
-2. [Introduction to designing data lakes on AWS](https://github.com/gustavom2998/engineering_notes/blob/main/courses/data_lakes_on_aws/README.md)
+2. [Introduction to designing data lakes on AWS (Coursera)](https://github.com/gustavom2998/engineering_notes/blob/main/courses/data_lakes_on_aws/README.md)
 
 ## Articles
 
