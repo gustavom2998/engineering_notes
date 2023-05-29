@@ -1,5 +1,5 @@
 
-# Data Warehouseing and Bussiness Intelligence Introduction
+# Data Warehousing and Bussiness Intelligence Introduction
 
 ## Data Capture vs Data Analysis
 
@@ -37,21 +37,21 @@ Before understanding how to build data warehouses, we must understand why users 
 The basic requirements for a DW/BI system are:
 
 - **Information availability**: Data Contents and BI Applications must be simple and fast for the business user to consume. Data must match business processes and vocabulary.
-- **Information consistency**: Only release data when it's ready (quality-wise) to maintain credibility. Maintain label consistency. Same name = same definition. Different definition = Diferent name.
+- **Information consistency**: Only release data when it's ready (quality-wise) to maintain credibility. Maintain label consistency. Same name = same definition. Different definition = Different name.
 - **Adaptability to change**: Must be able to handle changes in technology, data, and business conditions without invalidating existing data. New questions/data should not disrupt existing data/applications. When data changes, the changes need to be handled to not impact downstream processes.
 - **Timely performance**: Raw data needs to be converted into actionable information within the shortest possible time. The expectations for data prep and delivery times must be transparent for both DW/BI team and users.
 - **Security and privacy**: Access control to protect organizations confidential information.
-- **Drive decision making**: Needs to have right data to support this process. Main Outputs: the decisions that are made based on the data.
-- **Usage and adoption**:  No matter how well built the system is, it needs to be used to produce impact. Acceptance is also a test. Business users embrace simple and fast systems.
+- **Drive decision making**: Needs to have the right data to support this process. Main Outputs: the decisions that are made based on the data.
+- **Usage and adoption**:  No matter how well-built the system is, it needs to be used to produce impact. Acceptance is also a test. Business users embrace simple and fast systems.
 
 ## DW/BI System Architecture
 
 To maintain a DW/BI system over time, here is an overview of tips and responsibilities:
 
-- **Understand your users**: Job, responsibilities, goals and objectives. Find out the decisions they want to make based on data. Find best users for making high impact decisions. Find new users and present them the system.
+- **Understand your users**: Job, responsibilities, goals and objectives. Find out the decisions they want to make based on data. Find the best users for making high-impact decisions. Find new users and present them to the system.
 - **Make sure the data being delivered is correct, relevant and accessible**: Present the most robust and actionable data. User interfaces should be simple. Validate and monitor data accuracy and quality. Adapt the system to changes in business priorities and data availability.
-- **Maintain the system**:Justify investments by presenting decisions made using the system. Deliver regular updates. Maintain business users trust. Keep users, executives and tech teams happy.
+- **Maintain the system**: Justify investments by presenting decisions made using the system. Deliver regular updates. Maintain business users trust. Keep users, executives and tech teams happy.
 
 ## Reference
 
-Personal notes for educational purposes based of the book [The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling](https://www.amazon.com/Data-Warehouse-Toolkit-Definitive-Dimensional/dp/1118530802) by Ralph Kimball and Margy Ross, 3rd edition.
+Personal notes for educational purposes based on the book [The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling](https://www.amazon.com/Data-Warehouse-Toolkit-Definitive-Dimensional/dp/1118530802) by Ralph Kimball and Margy Ross, 3rd edition.
