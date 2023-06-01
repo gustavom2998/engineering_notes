@@ -67,3 +67,87 @@ See the original site, Written by Adam Wiggins: https://12factor.net
 - The app should be able to handle resources being attached and detached from deploys without code changes.
   - E.g Database goes down, a new instance is attached via env config change.
 
+## 5. Build, release and run
+
+- For a codebase to become a deploy it must:
+  - Be built: Convert a version of the code (specific commit) of the repo into an executable (binaries and assets).
+  - Release: Combination of build and config - ready for execution in an execution environment. 
+  - Run(time): Runs the app in the execution environment by launching some set of processes for the app.
+- None of these changes can be done at runtime for a 12FA.
+- Deployment tools offer release management tools which provide the ability to roll back to a previous release.
+- Every release has a unique ID (timestamp or incrementing version number).
+- Releases are append only. Changes require the creation of a new release.
+- Builds are initiated by the app developer when new code is deployed.
+- The run stage should be simple to avoid complex problems when developers aren't available to fix.
+- The build stage can be more complex since there is always a developer driving a deploy.
+
+## 6. Processes
+
+- The app is executed as one or more processes in the execution environment
+- Processes should be stateless and share nothing.
+- Any data that needs to be persisted should use a backing service.
+- Memory/file system can be used a cache to store temporary data.
+  - Never assume that data from a previous request will be available.
+- Session state data can be stored in Memcached or Redis (datastores with time-expiration).
+
+## 7. Port Binding
+
+- Web apps should export HTTP as a service by binding to a port and listening to requests coming in to that port.
+- Development visit a local host port for development.
+- In deployment, a routing layer handles routing requests from public hostname to port bound web processes.
+- This means that one app can become a backing service for another app.
+
+## 8. Concurrency
+
+- Processes follow unix process model for running service daemons.
+- App can handle diverse workloads based on process type.
+  - Web process for HTTP requests
+  - Worker process for long tasks
+- Individual processes can multiplex via threads or async/event models.
+- Application can scale horizontally due to the the characteristics we've added to the 12FA.
+- Process formation: Collection of process types and number of processes.
+- 12FA should rely on OS process manager to manage output streams, respond to crashes and handle user restarts.
+
+## 9. Disposability
+
+- Disposable processes: Can be started/stopped at any moment.
+- This requires short startup times.
+  - Consequence: Agility for releases, easy to scale up.
+- Processes must be able to shut down gracefully when they receive a SIGTERM.
+  - Stops receiving new requests, finishes on going requests, exit.
+- For long running jobs (workers) - return the job to the processing queue.
+- Processes should be robust against sudden deaths due to hardware failure.
+
+## 10. Dev/prod parity
+
+- Gaps between development and production appear as
+  - Time gap: Time changes take to go into production.
+  - Personnel gap: Different people write and deploy code.
+  - Tools gap: Stacks are first changed in development, so they may be different to production.
+- 12FA should be design for continuous deployment.
+- Gap between dev/prod should be small. 
+  - Small time gap: Code should be deployed minutes/hours after its written.
+  - Small personnel gap: Developers should be involved in deployment.
+  - Small tools gap: Tool sets should be a similar as possible.
+- Libraries can be used to guarantee parity for backing services by proving multiple adapters.
+  - These libraries also help with porting new backing services.
+- The same backing services should be used for development and production.
+
+## 11. Logs
+
+- Logs are the stream of aggregated, time ordered events collected from all ouput streams of running and backing services together.
+- Logs have no fixed beginning or end.
+- 12FA shouldn't worry about routing/storing output streams.
+  - Should write to stdout.
+  - Local devs will view this in the terminal.
+  - Process stream will be captured by execution environment and unified in one or more destination for viewing and archiving.
+  - Streams can be stored in log indexing systems or data warehouses for advanced analysis.
+  
+## 12. Admin processes
+
+- Process formation are regular processes for app business needs.
+- Developers also perform administrative or maintenance tasks such as database migrations or running scripts.
+- These processes should run on identical environment (same release, codebase and config).
+- The same dependency isolation techniques should be used for all process types.
+- Locally one off scripts can be executed in a shell within the apps directory.
+- For production, developers can SSH or use other remote commands to execute the script within the environment.
